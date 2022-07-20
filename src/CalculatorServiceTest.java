@@ -5,7 +5,8 @@ import static org.junit.Assert.*;
 /**
  * @author KFY4VGJ
  */
-public class CalculatorTest {
+public class CalculatorServiceTest {
+    private CalculatorService testObj = new CalculatorService();
 
     // when input is this then output is that
     @Test
@@ -16,11 +17,12 @@ public class CalculatorTest {
         // args[2] = "5"
         // expected result: 8
 
-        String[] args = {"+", "3", "5", ""};
-        Calculator.main(args);
+        //String[] args = {"+", "3", "5", ""};
+        float result = testObj.getResult(3, 5, "+");
 
-        String result = args[3];
-        assertTrue(result.contains("8"));
+       // String result = args[3];
+        assertEquals(8, result, 0.001);
+      //  assertTrue(result.contains("8"));
     }
 
     @Test
@@ -32,10 +34,9 @@ public class CalculatorTest {
         // expected result: -2
 
         String[] args = {"-", "3", "5", ""};
-        Calculator.main(args);
+        float result = testObj.getResult(3, 5, "-");
 
-        String result = args[3];
-        assertTrue(result.contains("-2"));
+        assertEquals(-2, result, 0.001);
     }
 
     @Test
@@ -46,11 +47,10 @@ public class CalculatorTest {
         // args[2] = "5"
         // expected result: -2
 
-        String[] args = {"*", "3", "5", ""};
-        Calculator.main(args);
+        //String[] args = {"*", "3", "5", ""};
+        float result = testObj.getResult(3, 5, "*");
 
-        String result = args[3];
-        assertTrue(result.contains("15"));
+        assertEquals(15, result, 0.001);
     }
 
     @Test
@@ -61,11 +61,12 @@ public class CalculatorTest {
         // args[2] = "5"
         // expected result: -2
 
-        String[] args = {"/", "3", "5", ""};
-        Calculator.main(args);
+       // String[] args = {"/", "3", "5", ""};
+       // Calculator.main(args);
+        float result = testObj.getResult(3, 5, "/");
 
-        String result = args[3];
-        assertTrue(result.contains("0.6"));
+        assertEquals(0.6, result, 0.001);
+
     }
 
     @Test
@@ -76,11 +77,12 @@ public class CalculatorTest {
         // args[2] = "5"
         // expected result: -2
 
-        String[] args = {"&", "3", "5", ""};
-        Calculator.main(args);
+     //   String[] args = {"&", "3", "5", ""};
+      //  Calculator.main(args);
 
-        String result = args[3];
-        assertTrue(result.contains(""+Calculator.ERROR_CODE));
+        float result = testObj.getResult(3, 5, "&");
+
+        assertEquals(CalculatorService.ERROR_CODE, result, 0.001);
     }
 
     // SOLID principle
