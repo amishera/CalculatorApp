@@ -18,7 +18,7 @@ public class Calculator {
 		String operator = args[0];
 
 		float result = getResult(a, b, operator);
-	 	args[3] = result+"";
+//	 	args[3] = result+"";
 	}
 
 	private static float getResult(int a, int b, String operator) {
